@@ -272,14 +272,19 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 
 /* Specifics */
 
-.main-accordion-wrapper .main-accordion-component:last-child {
+custom-accordion-component {
+  margin-bottom: 40px;
+  display: block;
+}
+
+custom-accordion-component .main-accordion-component:last-child {
   margin-bottom: 20px;
   padding-bottom: 20px;
   border: none;
   border-bottom: 1px solid #ccc !important;
 }
 
-.accordion-container {
+custom-accordion-component .accordion-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -288,11 +293,11 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
   border-top: 1px solid #ccc !important;
 }
 
-.accordion-container .accordion-item {
+custom-accordion-component .accordion-container .accordion-item {
   overflow: hidden;
 }
 
-.accordion-label {
+custom-accordion-component .accordion-label {
   text-align: left;
   display: flex;
   justify-content: space-between;
@@ -306,7 +311,7 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
   margin: 0;
 }
 
-.accordion-label h3 {
+custom-accordion-component .accordion-label h3 {
   font-family: var(--e-global-typography-primary-font-family), Sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -315,48 +320,64 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
   margin: 0;
 }
 
-.accordion-content {
+custom-accordion-component .accordion-content {
   max-height: 0;
-	opacity: 0;
   overflow: hidden;
   font-family: "Aleo", serif;
   font-size: 14px;
   letter-spacing: 0;
   padding: 0 20px;
-  transition: max-height 400ms ease-in-out, opacity 400ms ease-in-out, padding 400ms ease-in-out;
 }
 
-.accordion-content p {
+@media (max-width: 768px) {
+  custom-accordion-component .accordion-content {
+    padding: 0;
+  }      
+}
+
+custom-accordion-component .accordion-content p {
   margin: 0;
 }
 
-.accordion-content a {
+custom-accordion-component .accordion-content a {
   color: black;
   text-decoration: none;
 }
 
-.accordion-item.active .accordion-content {
+custom-accordion-component .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms ease-in-out, height 500ms ease-in-out;
+}
+
+custom-accordion-component .accordion-content .accordion-inner {
+  padding: 30px 15px;
+  transition: padding 500ms ease-in-out;
+}
+
+custom-accordion-component .accordion-item.active .accordion-content {
   max-height: 100svh;
-  opacity: 1;
-  padding: 30px 20px;
-  transition: max-height 400ms ease-in-out, opacity 400ms ease-in-out, padding 400ms ease-in-out;
+  transition: max-height 500ms ease-in-out, height 500ms ease-in-out;
+}
+
+custom-accordion-component .accordion-item.active .accordion-content .accordion-inner {
+  padding: 30px 15px;
 }
 
 @media (max-width: 768px) {
-  .accordion-item.active .accordion-content {
+  custom-accordion-component .accordion-item.active .accordion-content .accordion-inner {
     padding: 15px 15px 7px 15px;
-  }      
+  }
 }
 
-.accordion-label svg {
-	width: 8px;
-  height: 8px;
-  transition: transform 0.3s ease-in-out;
-  pointer-events: none;
+custom-accordion-component .accordion-item .accordion-label svg {
+  transform: rotate(0deg);
+  transition: transform 500ms ease-in-out;
 }
 
-.accordion-item.active .accordion-label svg {
-  transform: rotate(180deg);
+custom-accordion-component .accordion-item.active .accordion-label svg {
+  transform: rotate(135deg);
+  transition: transform 500ms ease-in-out;
 }
 
 /* Single Product */
@@ -452,6 +473,7 @@ body.single-product .has-global-padding {
   width: 18px;
   height: 18px;
 	background: url(https://www.ebanista.com/wp-content/uploads/2024/12/ico-in-stock.png) center center no-repeat;
+  background: url('../twentytwentyfive-child/assets/images/ico-in-stock.png') center center no-repeat;
 }
 
 .single-product .product-stock-status.in-stock p {

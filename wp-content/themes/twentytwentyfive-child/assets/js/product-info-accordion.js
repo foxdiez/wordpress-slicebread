@@ -1,35 +1,53 @@
 class CustomAccordionComponent extends HTMLElement {
     constructor() {
         super();
-
-        this.accordions = this.querySelectorAll(".accordion-item");
+        this.accordions = this.querySelectorAll('.accordion-item');
     }
 
     connectedCallback() {
         this.accordions.forEach(item => {
-            const label = item.querySelector(".accordion-label");
-            const content = item.querySelector(".accordion-content");
+            const label = item.querySelector('.accordion-label');
+            const content = item.querySelector('.accordion-content');
 
-            label.addEventListener("click", () => {
-                const isOpen = item.classList.contains("active");
+            label.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
 
                 this.accordions.forEach(otherItem => {
+                    const otherContent = otherItem.querySelector('.accordion-content');
+
                     if (otherItem !== item) {
-                        otherItem.classList.remove("active");
-                        otherItem.querySelector(".accordion-content").style.maxHeight = null;
+                        otherItem.classList.remove('active');
+
+                        otherContent.style.height = otherContent.scrollHeight + 'px';
+                        requestAnimationFrame(() => {
+                            otherContent.style.height = '0px';
+                        });
                     }
                 });
 
-                item.classList.toggle("active");
-
                 if (isOpen) {
-                    content.style.maxHeight = null;
+                    item.classList.remove('active');
+                    content.style.height = content.scrollHeight + 'px';
+                    requestAnimationFrame(() => {
+                        content.style.height = '0px';
+                    });
                 } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
+                    item.classList.add('active');
+
+                    content.style.height = '0px';
+                    requestAnimationFrame(() => {
+                        content.style.height = content.scrollHeight + 'px';
+                    });
+
+                    content.addEventListener('transitionend', () => {
+                        if (item.classList.contains('active')) {
+                            content.style.height = 'auto';
+                        }
+                    });
                 }
             });
         });
     }
 }
 
-customElements.define("custom-accordion-component", CustomAccordionComponent);
+customElements.define('custom-accordion-component', CustomAccordionComponent);

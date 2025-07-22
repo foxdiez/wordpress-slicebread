@@ -58,6 +58,7 @@ single-product-quote-form .quote-popup-box {
     padding: 30px;
     scale: calc(0);
     transition: all 300ms ease-in-out;
+    padding-bottom: 5rem;
 }
 
 @media (max-width: 768px) {
@@ -70,6 +71,10 @@ single-product-quote-form .quote-popup-overlay.open .quote-popup-box {
     visibility: visible;
     opacity: 1;
     scale: calc(1);
+}
+
+single-product-quote-form .quote-popup-box h2 {
+    text-align: center;
 }
 
 single-product-quote-form .quote-popup-box .close-btn {
@@ -103,7 +108,7 @@ single-product-quote-form h2 {
 
 single-product-quote-form .quote-popup-box label {
     margin-bottom: .7em;
-    font-family: var(--hsf-field-label__font-family, var(--hsf-global__font-family, var(--hsf-default-field-label__font-family)));
+    font-family: "Open Sans";
     font-size: 14px;
     color: var(--hsf-field-label__color, var(--hsf-global__color, var(--hsf-default-field-label__color)));
     display: block;
@@ -113,7 +118,7 @@ single-product-quote-form .quote-popup-box label {
 
 single-product-quote-form .quote-popup-box input,
 single-product-quote-form .quote-popup-box select {
-    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: var(--e-global-typography-text-font-weight);
     line-height: var(--e-global-typography-text-line-height);
@@ -176,16 +181,18 @@ single-product-quote-form .quote-popup-box form p textarea {
     min-height: 48px;
 }
 
-single-product-quote-form .quote-popup-box form .wpcf7-not-valid-tip {
-    font-family: var(--hsf-erroralert__font-family, var(--hsf-global__font-family, var(--hsf-default-erroralert__font-family)));
+single-product-quote-form .quote-popup-box form .wpcf7-not-valid-tip,
+single-product-quote-form .quote-popup-box form .wpcf7-response-output {
+    font-family: "Open Sans";
     font-size: 14px;
     word-break: break-word;
     overflow-wrap: break-word;
+    margin: 1rem 0rem 3rem;
 }
 
 single-product-quote-form .quote-popup-box input[type="Submit"] {
     width: var(--hsf-button__width, auto);
-    font-family: var(--hsf-button__font-family, var(--hsf-global__font-family, var(--hsf-default-button__font-family)));
+    font-family: "Open Sans";
     font-size: 14px;
     color: var(--hsf-button__color, var(--hsf-default-button__color));
     padding: 12.0px 36.0px 12.0px 36.0px;;

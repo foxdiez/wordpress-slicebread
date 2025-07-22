@@ -45,6 +45,17 @@ class CustomProductGallery extends HTMLElement {
 
     this.thumbSwiper = thumbSwiper;
     this.mainSwiper = mainSwiper;
+
+    this.mainSwiper.on('slideChange', () => {
+      const activeIndex = this.mainSwiper.activeIndex;
+      const paginationSwiper = this.thumbSwiper;
+      const visibleSlides = paginationSwiper.params.slidesPerView;
+      const currentStart = paginationSwiper.activeIndex;
+
+      if (activeIndex <= currentStart + visibleSlides - 1) {
+        paginationSwiper.slideTo(activeIndex);
+      }
+    });
   }
 }
 
