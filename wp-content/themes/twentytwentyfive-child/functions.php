@@ -46,14 +46,14 @@
 		}
 
 		$stock_status = $product->get_stock_status();
-		$attachment_id = 22;
-		$image = wp_get_attachment_image( $attachment_id, 'medium');
-		$image_src = $image;
+		$image_divider = wp_get_attachment_image( 22, 'medium');
+		$image_stock = wp_get_attachment_image( 23, 'medium');
 
 		if ($stock_status === 'instock') {
 			return '
-				'. $image_src .'
+				'. $image_divider .'
 				<div class="product-stock-status uppercase in-stock">
+					' . $image_stock . '
 					<p>
 						In stock
 					</p>
@@ -61,16 +61,22 @@
 			';
 		} elseif ($stock_status === 'onbackorder') {
 			return '
-				'. $image_src .'
+				'. $image_divider .'
 				<div class="product-stock-status uppercase backorder">
-					Available on backorder
+					' . $image_stock . '
+					<p>
+						Available on backorder
+					</p>	
 				</div>
 			';
 		} else {
 			return '
-				'. $image_src .'
+				'. $image_divider .'
 				<div class="product-stock-status uppercase out-of-stock">
-					Out of stock
+					' . $image_stock . '
+					<p>
+						Out of stock
+					</p>
 				</div>
 			';
 		}

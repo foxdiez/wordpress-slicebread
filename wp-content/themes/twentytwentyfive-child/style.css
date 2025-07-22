@@ -465,15 +465,13 @@ body.single-product .has-global-padding {
   gap: 8px;
 }
 
-.single-product .product-stock-status.in-stock::before {
+.single-product .product-stock-status.in-stock img {
   content: '';
   position: relative;
   bottom: 2px;
   background-size: cover !important;
   width: 18px;
   height: 18px;
-	background: url(https://www.ebanista.com/wp-content/uploads/2024/12/ico-in-stock.png) center center no-repeat;
-  background: url('../twentytwentyfive-child/assets/images/ico-in-stock.png') center center no-repeat;
 }
 
 .single-product .product-stock-status.in-stock p {
