@@ -1,0 +1,99 @@
+custom-product-gallery .main-swiper {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 15px;
+}
+
+custom-product-gallery .main-swiper .swiper-slide.swiper-slide-zoomed img {
+    cursor: zoom-out;
+}
+
+custom-product-gallery .main-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
+custom-product-gallery .thumb-swiper-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+
+custom-product-gallery .thumb-swiper {
+    box-sizing: border-box;
+    padding: 10px 0;
+    flex: 1;
+    overflow: hidden;
+    max-width: 424px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    custom-product-gallery .thumb-swiper {
+        max-width: 80%;
+    }
+}
+
+custom-product-gallery .thumb-swiper .swiper-slide {
+    width: 100%;
+    max-width: 106px;
+    height: 83px;
+    padding: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+custom-product-gallery .thumb-swiper .swiper-slide-thumb-active {
+    border: 1px solid #b1b1b1;
+}
+
+custom-product-gallery .thumb-swiper .swiper-slide img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+custom-product-gallery .swiper-button-prev.thumb-prev,
+custom-product-gallery .swiper-button-next.thumb-next {
+    width: 32px;
+    height: 32px;
+    color: var(--e-global-color-primary);
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    top: 0;
+    bottom: -20px;
+    outline: 0;
+}
+
+custom-product-gallery .swiper-button-prev.thumb-prev {
+    left: -10px;
+}
+
+custom-product-gallery .swiper-button-next.thumb-next {
+    right: -10px;
+}
+
+@media (max-width: 768px) {
+    custom-product-gallery .swiper-button-prev.thumb-prev {
+        left: -5px;
+    }
+
+    custom-product-gallery .swiper-button-next.thumb-next {
+        right: -5px;
+    }
+}
+
+custom-product-gallery .swiper-button-prev.thumb-prev::after,
+custom-product-gallery .swiper-button-next.thumb-next::after {
+    font-size: 32px;
+}

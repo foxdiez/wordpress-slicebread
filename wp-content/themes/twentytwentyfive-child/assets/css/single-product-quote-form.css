@@ -1,0 +1,214 @@
+single-product-quote-form {
+    display: block;
+    margin-bottom: 50px;
+}
+
+single-product-quote-form [data-request-quote-open] {
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 14px;
+    letter-spacing: .15em;
+    height: auto;
+    line-height: 1;
+    padding: 16px 30px;
+    max-width: max-content;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+single-product-quote-form [data-request-quote-open]:hover {
+    background-color: #fff;
+    color: #010103;
+    border-bottom: 1px solid #000;
+}
+
+single-product-quote-form .quote-popup-overlay {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    overflow: auto;
+    background: rgba(0,0,0,0.6);
+    padding-top: 32px;
+    padding-bottom: 20px;
+    z-index: 99999;
+    transition: all 300ms ease-in-out;
+}
+
+single-product-quote-form .quote-popup-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+single-product-quote-form .quote-popup-box {
+    visibility: hidden;
+    opacity: 0;
+    align-items: center;
+    justify-self: center;
+    background: white;
+    max-width: 500px;
+    padding: 30px;
+    scale: calc(0);
+    transition: all 300ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+    single-product-quote-form .quote-popup-box {
+        width: 65%;
+    }
+}
+
+single-product-quote-form .quote-popup-overlay.open .quote-popup-box {
+    visibility: visible;
+    opacity: 1;
+    scale: calc(1);
+}
+
+single-product-quote-form .quote-popup-box .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    background: none;
+    outline: 0;
+    border: 0;
+}
+
+single-product-quote-form .quote-popup-box .close-btn svg {
+    height: 12px;
+    width: 12px;
+    pointer-events: none;
+}
+
+single-product-quote-form h2 {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    font-size: 30px;
+    line-height: 125%;
+    word-break: break-word;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+single-product-quote-form .quote-popup-box label {
+    margin-bottom: .7em;
+    font-family: var(--hsf-field-label__font-family, var(--hsf-global__font-family, var(--hsf-default-field-label__font-family)));
+    font-size: 14px;
+    color: var(--hsf-field-label__color, var(--hsf-global__color, var(--hsf-default-field-label__color)));
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+single-product-quote-form .quote-popup-box input,
+single-product-quote-form .quote-popup-box select {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-size: 14px;
+    font-weight: var(--e-global-typography-text-font-weight);
+    line-height: var(--e-global-typography-text-line-height);
+    letter-spacing: var(--e-global-typography-text-letter-spacing);
+    color: var(--e-global-color-text);
+    background-color: #02010100;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: var(--e-global-color-primary);
+    border-radius: 0px 0px 0px 0px;
+    border: none;
+    border-bottom: 1px solid var(--e-global-color-primary) !important;
+    margin: 0;
+    height: 45px;
+    outline: 0;
+    padding: var(--hsf-background__padding, var(--hsf-default-background__padding));
+}
+
+single-product-quote-form .quote-popup-box .wpcf7 {
+    width: 100%;
+}
+
+single-product-quote-form .quote-popup-box .quote-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    single-product-quote-form .quote-popup-box .quote-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+single-product-quote-form .quote-popup-box form {
+    margin-bottom: -20px;
+}
+
+single-product-quote-form .quote-popup-box form p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+single-product-quote-form .quote-popup-box form p label {
+    margin: 0 0 10px 0;
+}
+
+single-product-quote-form .quote-popup-box form p input,
+single-product-quote-form .quote-popup-box select {
+    width: 100%;
+}
+
+single-product-quote-form .quote-popup-box form p textarea  {
+    margin-top: 15px;
+    width: 100%;
+}
+
+single-product-quote-form .quote-popup-box form p textarea {
+    min-height: 48px;
+}
+
+single-product-quote-form .quote-popup-box form .wpcf7-not-valid-tip {
+    font-family: var(--hsf-erroralert__font-family, var(--hsf-global__font-family, var(--hsf-default-erroralert__font-family)));
+    font-size: 14px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+single-product-quote-form .quote-popup-box input[type="Submit"] {
+    width: var(--hsf-button__width, auto);
+    font-family: var(--hsf-button__font-family, var(--hsf-global__font-family, var(--hsf-default-button__font-family)));
+    font-size: 14px;
+    color: var(--hsf-button__color, var(--hsf-default-button__color));
+    padding: 12.0px 36.0px 12.0px 36.0px;;
+    border-radius: var(--hsf-button__border-radius, var(--hsf-default-button__border-radius));
+    border-style: var(--hsf-button__border-style, var(--hsf-default-button__border-style));
+    border-color: var(--hsf-button__border-color, var(--hsf-default-button__border-color));
+    background-color: var(--hsf-button__background-color, var(--hsf-default-button__background-color));
+    background-image: var(--hsf-button__background-image, var(--hsf-default-button__background-image));
+    box-shadow: var(--hsf-button__box-shadow, var(--hsf-default-button__box-shadow));
+    font-weight: var(--hsf-button__font-weight, var(--hsf-default-button__font-weight));
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    text-align: center;
+    transition: transform .2s ease-out, background-color .2s linear, box-shadow .2s;
+    cursor: pointer;
+    margin: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    height: 100%;
+    justify-self: end;
+}
+
+single-product-quote-form .quote-popup-box input[type="Submit"]:hover {
+    transform: translateY(-0.368478px);
+}
